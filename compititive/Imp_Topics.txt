@@ -1,0 +1,96 @@
+codeforces,SPOJ,Hackerearth,GFG,leetcode
+1) Practice problem from 'A2OJ ladders'
+
+Topics :
+First Step :
+1) pattern printing problems.
+2) analysis of the time complexity.
+3) linear search and implementing circular array.
+4) palindrome and other number(perfect,armstrong,...).
+5) simple hashing problems.
+6) prefix sum problems, both 1D and 2D
+7) sliding window technique.
+
+Second Step :
+1) Binary Search
+2) GCD of two numbers in Log N(Euclidean and Extended Euclidean algorithm)
+3) Linear Diphantine Equation
+4) Checking Prime in Sqrt(n) complixty
+5) Sieve of Eratosthenes
+6) Segmented Sieve
+7) Finding the prime factorisation of a number in Log N per query
+8) Euler Totient Function
+9) Fermat Little Theorem
+10) Wilson's theorm(Hackerearth)
+
+Third Step (Number theroy):
+1) Finding X^n in Log n
+2) Moduler Arithmetic
+3) Modular Inverse of a number
+4) Moduler Exponentiation
+5) ChineseRemainder Theorem
+6) Factorial Modulo mod
+7) Finding nCr and nPr for Queries
+8) Inclusion Exclusion Principle (Comunitics problems - Hackerearth)
+
+Fourth Step (Basic Sorting and Bit maniplation):
+1) bubble,insertion,selection sort
+2) Do problem which are constructive and have swapping terms in it.
+3) Solve problems releted to 2-pointers approach.
+4) Read about bit manipulation (Left Shift, Right Shift, set bit, MSB,LSB)
+5) Power Set of a given array or a string using BIT
+6) Number of subarrays with XOR as zero (not an algorithms, but a must do problem) (Hackerearth for bit manipulation)
+7) Problem Releted to Greedy Algorithms
+8) Kadane's Algorithm and problems releted
+9) job sequencing and Activity Selection Problem
+
+Fifth Step (Recursion - HackerEarth,GFG):
+1) Start with basic like finding factorial
+2) Implement Binary Search
+3) Implement Modular Exponentiation
+4) Solve recursion problems like finding subset with given sum and others to get a strong grip
+5) Learn about Merge Sort and Quik Sort
+6) Solve Problem related to Merge Sort
+7) Do backtracking problem like Sudoko and n queen , it will help you when you do Dp path problems.
+   
+Sixth Step (CodeForces):
+1) Meet in the Middle Algorithm and problems
+2) Divide and Conquer Problems
+3) Next greater element/Next Smaller using Stack
+4) Problem releted to parenthesis
+5) Largest Rectangular Area in Histogram
+6) Problem Releted to Heap (PriorityQueue)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Advance Topics :
+First Step (cp algorithm website):
+
+1) Learn about hashing on String and solve problem, understand when collision happens.
+2) Rabin Karp Algorithm
+3) Prefix Function
+4) KMP Algorithm
+5) Z-Function
+6) Manachers Algorithm
+
+
+Second Topic (Trees, D and E on codeforces) :
+
+1) Tree/Graph representation
+2) DFS/BFS Traversal in Graph/Tree
+3) Diameter, height,level of Tree
+4) Euler Tour of Tree
+5) Finding LCA using Euler Tour
+6) Finding LCA using Binary Lifting
+7) Distance b/w two nodes
+8) Subtree Problems
+
+Third Topic (Graph, spoj and codeforces, hackerearth for learn):
+1) connected components
+2) topological sort
+3) Cycle Detection in graph
+4) Bipartite Check in Graph
+5) SCC using Kosaraju's Algorithm
+6) Dijksta's Algorithms
+7) Bellman Ford Algorithms
+8) Floyed Warshall Algorithm
