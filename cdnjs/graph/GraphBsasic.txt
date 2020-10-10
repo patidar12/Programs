@@ -1,0 +1,40 @@
+Set of vertices connecte to each other
+We cant able to put all type of data into trees So we use Graph.
+Ex. : Users on social media connected to each other Some of them may not be connecte to others.
+Road network connected to different Cities.
+Tree is a special kind of graph where each node have a path to reach other node and there is no Cycle(Acyclic) in b/w nodes.
+
+<<--  Properties Of Graph  -->>
+
+Adjacent Vertices:  vertices connected by direct Edge
+
+Degree: Number of Edges going through the Vertices
+
+Edge: Connected two vertices directly (A->B)
+
+Path: Collection of Edges through which i can rich from one point to other point (A->B->C)
+
+Connected Graph: If every two vertices have path b/w them.
+
+Connected Components: All the vertices that have path to other vertices
+
+Minimum number of Edges in a connected graph : n-1 (n is number of vertices)
+
+Completed graph: Every vertecs have an direct Edge with All other vertecs in a graph
+
+-> Nc2 or (n*(n-1)) or O(n^2) Edges in a completed graph
+
+Note: minimum number of Edgws in a Graph is O(n) or Maximum number of Edges is O(n^2)
+
+
+
+Implemetation:
+
+1) Adjacency List : Used when we have a Sparsh graph(Less number of Edges)
+      Space Complexity - O(E) where E is number of edges
+      For finding the Adjacenc vertex required O(E) time complexity
+2) Adjacency Matrix : Used when we have a Dense graph(number of edges close to maximum number of edges)
+      Space complexity - O(N^2) where N is number of vertices
+      Faster than Adjacency list, we can acces Adjacency vertex in O(1) time Complexity
+
+
