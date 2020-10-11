@@ -38,3 +38,27 @@ Implemetation:
       Faster than Adjacency list, we can acces Adjacency vertex in O(1) time Complexity
 
 
+Directed graph:
+  A -> B Edge from A to B not from B to A
+  Required when we have one way road
+  On social media if i folow someone that does not mean he follow me.
+
+Weight graph:
+   Not all edges are equal
+   we have some weight on Edges.
+   Ex. length of road
+   Social media Common friend, or time of  they connected
+
+
+Minimum Spaining Tree(MST):
+
+Tree:
+Graph which is connected had no cycles
+N vertices and n-1 Edges
+Various spaining tree are posible for the graph
+
+
+for MST a graph should be weight
+MST is a spaining tree which has minimum weight
+
+

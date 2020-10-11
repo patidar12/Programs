@@ -24,37 +24,44 @@ Sample Output 1 :
 
 Note : to optimize instead of adjacany matrix need to use adjacency list, and for finding min_key need to use priority queue(heap)(need to update priority queue when dist is updated)
 '''
-def min_key(dist,visited):
-    min_index = -1
+
+## Read input as specified in the question.
+## Print output as specified in the question.
+
+def minKey(dis, visited):
+    index = -1
     min = 2**31
-    for i in range(len(dist)):
-        if(min > dist[i] and (not visited[i])):
-            min = dist[i]
-            min_index = i
-    return min_index
+    for i in range(len(dis)):
+        if(min > dis[i] and not visited[i]):
+            min = dis[i]
+            index = i
+    return index
 
-def Dijkstra(arr,V):
+def prims(graph, V):
     visited = [False]*V
-    dist = [2**31]*V
-    dist[0] = 0
-    count = 0
-    while(count < V-1):
-        count += 1
-        min_index = min_key(dist,visited)
-        visited[min_index] = True
+    dis = [2**31]*V
+    dis[0] = 0
+    for i in range(V):
+        src = minKey(dis, visited)
+        visited[src] = True
         for i in range(V):
-            if((arr[min_index][i] != 0) and (not visited[i]) and (dist[i] > (dist[min_index]+arr[min_index][i]))):
-                dist[i] = dist[min_index]+arr[min_index][i]
+            if(graph[src][i] > 0 and graph[src][i] + dis[src] < dis[i] and not visited[i]):
+                dis[i] = graph[src][i] + dis[src]
+    return dis
 
-    return dist            
-V,E = map(int,input().split())
-arr = [[0 for x in range(V)] for y in range(V)]
+def printMST(result):
+    for i in range(len(result)):
+        print(i,result[i])
+
+def MST(adjMatrix, V):
+    result = prims(adjMatrix, V)
+    printMST(result)
+
+V, E = map(int, input().split())
+adjMatrix = [[0 for i in range(V)] for _ in range(V)]
 for i in range(E):
-    v1,v2,w = map(int,input().split())
-    arr[v1][v2] = w
-    arr[v2][v1] = w   
-   
-result = Dijkstra(arr,V)
-for i in range(V):
-    print(i,result[i])
+    fv,sv,w = map(int, input().split())
+    adjMatrix[fv][sv] = w
+    adjMatrix[sv][fv] = w
 
+MST(adjMatrix, V)

@@ -1,0 +1,25 @@
+Algo:
+Pik the edge with minimum weight
+Skip the edge which will from the cycle
+
+
+Detect Cycle:
+
+If two vertices already included in MST and as path b/w them,
+then they from a cycle, we have to ignore this Edge.
+Time complexity: O(E) ~ O(V^2)
+
+Union Find Algorithm:
+we have to mentain a perent for every vertex
+If the parent of two vertex is same than they from the cycle.
+
+Time complexity using Union Find(ElogE + E*V)
+1) Taking Input O(E)
+2) Sort the array of edges (ElogE)
+3) Pick (V-1) Edges from E and from Mst:  O(E)
+    Cycle detection O(V)
+   O(E*V) 
+   
+Union By rank and path Comperision Algorithm:  
+    we can reduce complexity of cycle detection to O(logV)
+

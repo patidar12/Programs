@@ -33,32 +33,41 @@ Sample Input 2 :
 3 4
 0 3
 
+Sample Output 2 :
+
 '''
-def getPath(arr,src,dst,V,visited,path):
-    visited[src] = True
-    if(src == dst):
-        path.append(src)
-        return True
-    for i in range(V):
-        if(arr[src][i] == 1):
-            if(not visited[i]):
-                if(getPath(arr,i,dst,V,visited,path)):
+
+## Read input as specified in the question.
+## Print output as specified in the question.
+class Graph:
+    def __init__(self, V):
+        self.adjMat = [[0 for i in range(V)] for _ in range(V)]
+        self.V = V
+    def addEdge(self, fv, sv):
+        self.adjMat[fv][sv] = 1
+        self.adjMat[sv][fv] = 1
+    def findPath(self, src, dst, path, visited):
+        visited[src] = True
+        if(src == dst):
+            path.append(dst)
+            return True
+        for i in range(self.V):
+            if(self.adjMat[src][i] == 1 and not visited[i]):
+                if(self.findPath(i, dst, path, visited)):
                     path.append(src)
                     return True
-    return False
+        return False
 
-V,E = map(int, input().split())
-arr = []
-for i in range(V):
-    arr.append([0]*V)
+
+V, E = map(int,input().split())
+g = Graph(V)
 for i in range(E):
-    first,second =map(int,input().split())
-    arr[first][second] = 1
-    arr[second][first] = 1
-src,dst = map(int,input().split())
+    fv, sv = map(int, input().split())
+    g.addEdge(fv, sv)
+
+src, dst = map(int,input().split())
 visited = [False]*V
 path = []
-result = getPath(arr,src,dst,V,visited,path)
-if(result):
-    for i in path:
-        print(i,end = ' ')
+if(g.findPath(src, dst, path, visited)):
+    for val in path:
+        print(val, end = ' ')

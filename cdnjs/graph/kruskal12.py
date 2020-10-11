@@ -28,40 +28,54 @@ Sample Output 1 :
 
 Note : need to try using union rank find algorithm to optimize solution
 '''
+## Read input as specified in the question.
+## Print output as specified in the question.
+class Edge:
+    def __init__(self,v1,v2,weight):
+        self.v1 = v1
+        self.v2 = v2
+        self.weight = weight
 
-def getParrent(parrent,v1):
+def findParrent(v1, parrent):
     while(v1 != parrent[v1]):
         v1 = parrent[v1]
     return v1
-
-def getMST(arr,V):
-    parrent = [0]*V
-    for i in range(V):
-        parrent[i] = i
-    arr.sort(key = lambda x:x[2])
-    count = 0
+        
+def kruskal(edge, V, E):
+    parrent = [i for i in range(V)]
     output = [None]*(V-1)
+    edge.sort(key = lambda v:v.weight)
+    count = 0
     i = 0
-    while(count < V-1 and i < len(arr)):
-        v1,v2,w = arr[i]
+    while(count < V-1 and i < E):
+        e = edge[i]
         i += 1
-        p1 = getParrent(parrent,v1)
-        p2 = getParrent(parrent,v2)
+        v1,v2,weight = e.v1,e.v2,e.weight
+        p1 = findParrent(v1, parrent)
+        p2 = findParrent(v2, parrent)
         if(p1 != p2):
-            if(v1 < v2):
-                output[count] = (v1,v2,w)
-            else:
-                output[count] = (v2,v1,w)
-            count += 1
+            output[count] = e
             parrent[p1] = p2
-    return output
-
-V,E = map(int,input().split())
-arr = []
+            count += 1
+            
+    return output    
+        
+def printMST(result):
+    for edge in result:
+        if(edge.v1 < edge.v2):
+            print(edge.v1, edge.v2, edge.weight)
+        else:
+            print(edge.v2, edge.v1, edge.weight)
+def MST(edge, V, E):
+    result = kruskal(edge, V, E)
+    printMST(result)
+        
+        
+V, E = map(int, input().split())
+edge = [None]*E
 for i in range(E):
-    v1,v2,w = map(int,input().split())
-    arr.append((v1,v2,w))
-result = getMST(arr,V)
-for edge in result:
-    print(edge[0],edge[1],edge[2])
+    v1,v2,w = map(int, input().split())
+    edge[i] = Edge(v1, v2, w)
+
+MST(edge, V, E)
 

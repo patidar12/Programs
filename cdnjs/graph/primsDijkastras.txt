@@ -1,0 +1,20 @@
+Note: Similar we can use for Dijkastras 
+Dijkastras: used to find minimum distance from src to all other vertices
+Prims: Used to find minimum spanning tree
+
+
+refrence : primsPic.png
+Algo:
+for every vertex (0,V) -> O(V)
+   find minVertex in weight array -> O(V)
+   update weight of adjacent vertex from minVertex  -> O(V) (adjacency Matrix)
+
+Time Complexity: O(V) * O(V+V -> O(V^2))
+
+we can reduce the time complexity:
+  1) we can use priority queue for weight array log(V)
+  2) we can use adjacency list insted of adjacency metrix, while updating the weight of adjacent
+     only need to run the loop for adjacent vertex.
+  reduce to O(ElogV)
+
+

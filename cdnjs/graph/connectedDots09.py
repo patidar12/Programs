@@ -25,31 +25,43 @@ Sample Output :
 
 '''
 
-def search(arr,src_row,src_col,row,col,N,M,visited,length):
-    visited[row][col] = True
-    if(src_row == row and src_col == col-1 and length >= 4):
+## Read input as specified in the question.
+## Print output as specified in the question.
+def adjacent(src_row,src_col,row,col,pos):
+    for i in range(len(pos)):
+        newX = row + pos[i][0]
+        newY = col + pos[i][1]
+        if(newX == src_row and newY == src_col):
+            return True
+    return False
+
+def validPoint(x, y, N, M):
+    if(x >= 0 and y >= 0 and x < N and y < M):
         return True
-    if(col-1 >= 0 and (not visited[row][col-1]) and arr[row][col-1] == arr[src_row][src_col]):
-        if(search(arr,src_row,src_col,row,col-1,N,M,visited,length+1)):
-            return True
-    if(row-1 >= 0 and (not visited[row-1][col]) and arr[row-1][col] == arr[src_row][src_col]):
-        if(search(arr,src_row,src_col,row-1,col,N,M,visited,length+1)):
-            return True
-    if(col+1 < M and (not visited[row][col+1]) and arr[row][col+1] == arr[src_row][src_col]):
-        if(search(arr,src_row,src_col,row,col+1,N,M,visited,length+1)):
-            return True
-    if(row+1 < N and (not visited[row+1][col]) and arr[row+1][col] == arr[src_row][src_col]):
-        if(search(arr,src_row,src_col,row+1,col,N,M,visited,length+1)):
-            return True
+    return False
+
+def search(arr,src_row,src_col,row,col,N,M,color,visited,length,pos):
+    visited[row][col] = True
+    if(adjacent(src_row,src_col,row,col,pos) and length >= 4):
+        return True
+
+    for i in range(len(pos)):
+        newX = row + pos[i][0]
+        newY = col + pos[i][1]
+        if(validPoint(newX, newY, N, M) and arr[newX][newY] == color and not visited[newX][newY]):
+            if(search(arr,src_row,src_col,newX,newY,N,M,color,visited,length+1,pos)):
+                return True
+
     visited[row][col] = False
     return False
 
 def maxLength(arr,N,M):
     visited = [[False for i in range(M)] for j in range(N)]
+    pos = [[1,0],[0,1],[-1,0],[0,-1]]
     for i in range(N):
         for j in range(M):
             if(not visited[i][j]):
-                if(search(arr,i,j,i,j,N,M,visited,1)):
+                if(search(arr,i,j,i,j,N,M,arr[i][j],visited,1,pos)):
                     return 1
     return 0
 
