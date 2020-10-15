@@ -1,0 +1,6 @@
+- Connected components in Directed Graph : kosarajus Algorithm
+
+Steps:
+1) Do DFS or BFS  and store vertices in a stack as per the finish time
+2) Trnsponse the graph
+3) And take vertices from stack and Do DFS or BFS and store result
