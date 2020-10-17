@@ -1,0 +1,35 @@
+used for pattern searching in a string
+
+Z-Function:
+Z(k): length of longest substring starting at k which is also the prefix of the string
+Z is an array
+
+ex. :
+string = "aacbyaakaac"
+Z = [0,1,0,0,0,2,1,0,3,1,0]
+
+Heare,
+Z[8] = 3
+Means in string there is a substring of length 3 started with index 8 which is also prefix of the string(0-2)
+
+
+Pattern search using Z- Function:
+
+text = "yabckabdabc"
+pattern = "abc"
+
+construct a string pattern + '$' + text
+ie. string = "abc$yabckabdabc"
+construct Z-Array for the new string:
+
+string = "abc$yabckabdabc"
+z = [0,0,0,0,0,3,0,0,0,2,0,0,3,0,0]
+
+Now in array if Z[k] == len(pattern)
+Means pattern available in the text and we can get the index of pattern in text
+
+index = k - (len(pattern) + 1)
+where index is the starting index of pattern in the text.
+Time Complexity = O(M + N) for finding all the pattern
+
+

@@ -1,0 +1,10 @@
+Directed Graph
+component of graph from which there is no outgooing edge
+
+Algorithm:
+
+1) Find all the Strongaly connected components
+2) For all vertices check outgoing edges to see if they are
+ going out of the component
+    If edge going out of the component, then it is not bottom of the graph
+    else It is the bottom of the graph
