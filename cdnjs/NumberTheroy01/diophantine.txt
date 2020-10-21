@@ -1,0 +1,21 @@
+Diophantine Equations:
+ - This are Polinominal Equation -
+   properties:
+        - Integrel Solution Exist
+	- Unknown should be integer
+          ex. aX + bY = c  (X, Y are Unknown)
+
+Linear Diophantine Equations:
+
+Ex- aX + bY = c  a,b,c belong to Z (integer)
+
+then x, y are integer only if
+gcd(a,b) divides c
+
+
+For Ex.
+ 3X + 6Y = 8
+ gcd(3, 6) = 3
+ 8 is not divisible by 3
+ integrel Solution does not exist
+

@@ -1,0 +1,28 @@
+we know that:
+gcd(a,b) = gcd(b, a%b) given a>b
+
+From Extended Euclid algorithm :
+ aX + bY = gcd(a,b)
+ from this find X, Y
+From Diophantine we can say that X, Y should be integer
+because aX + bY = c
+here c is gcd(a,b)
+
+
+Using Extended Euclid Calcualate value of X, Y
+
+aX + bY = gcd(a, b) = gcd(b, a%b)
+bX1 + (a%b)Y1 = gcd(b, a%b)
+ we know that:
+ a%b = a - b*(a/b)
+
+bX1 + (a - b*(a/b))Y1 = gcd(a,a%b) = gcd(a, b)
+
+bX1 + (a - b*(a/b))Y1 = aX + bY
+b (X1 - (a/b)Y1) + aY1 = aX + bY
+
+compare the cofficient a and b:
+
+X = Y1
+Y = X1 - (a/b)Y1
+ Using this two formula we can calculate X and Y using Euclid Algorithm

@@ -1,0 +1,23 @@
+Multipicative Inverse:
+
+find value of B for which A*B = 1
+
+A*(1/A) = 1 i.e. B = 1/A or B = A inverse
+ex. 12*B = 1
+then B = 1/12
+
+
+Multipicative modulo inverse:
+(A*B) mod m = 1
+
+for ex. A = 5, m = 17
+
+we have to find B for which above condition hold
+
+then check for every starting from 1
+
+B = 7
+
+(5*7)mod 17 = 1
+
+Refer to MultipicativeModuloInversePNG
