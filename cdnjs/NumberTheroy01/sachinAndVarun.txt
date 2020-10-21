@@ -1,0 +1,109 @@
+ax + by = d
+given a, b ,d
+find number of pairs of (x, y) such that above condition hold
+
+
+Solution 1:
+
+x,y >= 0
+from the above equation,
+range of x and y
+0 <= x <= d/a
+0 <= y <= d/b
+
+we can run two loop
+for x in 0 to d/a
+   for y in 0 to d/b
+      check if above equation satisfied with (x,y)
+
+Time Complexity:
+
+O((d/a)*(d/b)) -> O((d^2)/(a*b))
+ 
+
+Solution 2:
+
+ax + by = d
+
+0 <= x <= d/a
+0 <= y <= d/b
+
+ax = d - by  ----(1)
+
+in this equation we can check for every value of y that d - by is divisible from a
+if it is divisible from a than we can get value of x from the above equation for corrosponding y
+
+Time Complexity : O(d/b)
+
+Solution 3:
+
+ax + by = d
+ax = d - by
+let say smallest value of y for that (d - by) is divisible by a is y1
+so (d - by)%a = 0 for y = y1
+
+so next value of y should be
+y1 + a
+y1 + 2*a
+.
+.
+.
+.
+.
+
+
+
+we know that last term should be less than d/b from 0 <= y <= d/b
+let say last etrm is:
+
+y1 + na <= d/b
+na <= d/b - y1
+n <= (d/b - y1)/a  from this equation we can find value of n in O(1)
+
+So including the smallest value we have (n+1) term
+So We have (n+1) pairs
+
+
+Now for finding y1 in worst case may take O(d/b)
+
+
+Reducing complexity to find y1:
+
+(d - by)%a = 0
+we want minimum value of y such that above condition hold
+
+d%a - (b%a) * (y%a) = 0
+in above equation on value of y is changing other are constant
+
+So if we found y1 corrosponding to (y%a) such that above condition is hold
+
+ax + by = d
+by = d - ax
+y = (d - ax)/b
+
+y%a = (d/b)%a - (ax/b)%a
+last term (ax/b)%a is zero because a is multipling in the number os taking modulo with a give result zero
+
+y%a = (d/b)%a
+
+
+if we put the value in d%a - (b%a) * (y%a) = 0
+
+d%a - (b%a) * ((d/b)%a) = 0
+
+this is hold so we can use
+y1 = (d/b)%a
+
+using y1 we can calculate value of n from n <= (d/b - y1)/a
+
+
+Now for calculating (d/b)%a
+=> d*modInverse(b,a)
+
+=> ((d%a) * modInverse(b,a))%a 
+
+calculating modInverse take O(log(min(a,b)))
+
+Other task we can done in O(1)
+
+Time complexity : O(log(min(a,b)))
